@@ -96,7 +96,7 @@ function ProductsPreview({ products }) {
     <h2>
       <AccordionButton>
         <Box as="span" flex='1' textAlign='left' >
-          {item.product_name}
+          {item.product_description}
         </Box>
         <AccordionIcon />
       </AccordionButton>
