@@ -92,7 +92,7 @@ function ProductsPreview({ products }) {
         <Stack mt='6' spacing='3'>
           <Heading size='md'></Heading>
 
-          <Box as="span" flex='1' textAlign='left' >
+          <Box as="span" flex='1' textAlign='center' >
           {item.product_description}
         </Box>
           {/* <Accordion allowToggle>
