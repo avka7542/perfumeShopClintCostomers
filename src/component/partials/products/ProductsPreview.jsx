@@ -91,13 +91,15 @@ function ProductsPreview({ products }) {
         />
         <Stack mt='6' spacing='3'>
           <Heading size='md'></Heading>
-          <Accordion allowToggle>
+
+          <Box as="span" flex='1' textAlign='left' >
+          {item.product_description}
+        </Box>
+          {/* <Accordion allowToggle>
   <AccordionItem >
     <h2>
       <AccordionButton>
-        <Box as="span" flex='1' textAlign='left' >
-          {item.product_description}
-        </Box>
+       
         <AccordionIcon />
       </AccordionButton>
     </h2>
@@ -106,7 +108,7 @@ function ProductsPreview({ products }) {
     </AccordionPanel>
   </AccordionItem>
 
-</Accordion>
+</Accordion> */}
           <Text color='blue.600' fontSize='2xl'>
            {`PRICE: ${item.product_price}$`} 
           </Text>
