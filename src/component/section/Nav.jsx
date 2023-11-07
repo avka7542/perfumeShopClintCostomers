@@ -137,60 +137,81 @@ function Nav() {
 
         {/* Second Nav */}
      
-      <Flex  bgColor={'rgb(240,128,128)'}>
-          <Flex flex={"60%"} justifyContent={'space-between'}>
-            <Flex >
-              <Input display={openedNav?'flex':'none'}
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-              color={'gray.700'} placeholder='search' bg={'white'} m={'3'}/>
-              <Flex display={openedNav?'flex':'none'} alignSelf={'center'}><BiSearch/></Flex>
-            </Flex>
-            {/* <ShoppingCart/> */}
-          <Flex>
-          <Heading justifySelf={'end'} fontSize={42} color={'#white'} alignItems={'center'}>
-            {console.log(isAuthenticated)}
-            {isAuthenticated?`Wellcome ${cookies.user.user_name}`:'Luxtury Perfumes'}</Heading>
-          </Flex>
-          
-           
-          </Flex>
-          
-          
-          <Flex flex={'40%'} justifyContent={'right'}  alignItems={'center'} height={'60px'} >
-            {isAuthenticated?<Link to={"/shopping cart"} onClick={() => saveCurrentPage('shopping cart')}><Button colorScheme="teal"><BsCartCheck  size={27}/></Button></Link>:<Link to={"/"}><Button display={'none'} colorScheme="teal"><BsCartCheck color="white"  size={27} /></Button></Link>}
-            
-          
-            {isAuthenticated?<Link  to= {"/"}>
-            <Button 
-             onClick={
-              ()=> {logout();
-              setSendNewRequest(prev => !prev)
-              removeCookie('token') 
-              removeCookie('user') }
-             } 
-                 color={'white'}  bg={'dodgerblue'} p={5} marginLeft={5}> Log Out<PiSignInLight  /></Button>
-            </Link>:
-            <Link to= {"/login"}>
-            <Button color={'white'}  bg={'dodgerblue'} p={5} marginLeft={5}> Log in<PiSignInLight /></Button>
-            </Link>}
-            
-            
-            
-
-            <Link to="/register">
-                <Button 
-            color={'white'}
-             marginLeft={5} 
-             marginRight={8}
-              bg={'dodgerblue'}
-              
-              >Register <BsPencil /> </Button>
-            </Link>
-          
-
+        <Flex bgColor={'rgb(240, 128, 128)'} align="center" justify="space-between" px={{ base: 4, md: 6 }} py={4}>
+      <Flex flex={{ base: 1, md: '60%' }} justify={{ base: 'space-between', md: 'space-between' }}>
+        <Flex>
+          <Input
+            display={openedNav ? 'flex' : 'none'}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            color="gray.700"
+            placeholder="search"
+            bg="white"
+            m={3}
+          />
+          <Flex display={openedNav ? 'flex' : 'none'} alignSelf="center">
+            <BiSearch />
           </Flex>
         </Flex>
+        <Flex>
+          <Heading
+            justifySelf="end"
+            fontSize={{ base: 32, md: 42 }}
+            color="white"
+            alignItems="center"
+          >
+            {isAuthenticated ? `Welcome ${cookies.user.user_name}` : 'Luxury Perfumes'}
+          </Heading>
+        </Flex>
+      </Flex>
+
+      <Flex flex={{ base: 1, md: '40%' }} justify="flex-end" alignItems="center" height="60px">
+        {isAuthenticated ? (
+          <Link to="/shopping cart" onClick={() => saveCurrentPage('shopping cart')}>
+            <Button colorScheme="teal">
+              <BsCartCheck size={27} />
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <Button display="none" colorScheme="teal">
+              <BsCartCheck color="white" size={27} />
+            </Button>
+          </Link>
+        )}
+
+        {isAuthenticated ? (
+          <Link to="/">
+            <Button
+              onClick={() => {
+                logout();
+                setSendNewRequest((prev) => !prev);
+                removeCookie('token');
+                removeCookie('user');
+              }}
+              color="white"
+              bg="dodgerblue"
+              p={5}
+              ml={5}
+            >
+              Log Out<PiSignInLight />
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <Button color="white" bg="dodgerblue" p={5} ml={5}>
+              Log in<PiSignInLight />
+            </Button>
+          </Link>
+        )}
+
+        <Link to="/register">
+          <Button color="white" ml={5} mr={8} bg="dodgerblue">
+            Register <BsPencil />
+          </Button>
+        </Link>
+      </Flex>
+    </Flex>
         <ToggleColorMode />
 
       </Box>
