@@ -40,7 +40,7 @@ function CategoriesPreview({ products }) {
   ? products.filter(item=> item.categories[0].category_name === category)
   : products
   const currentProducts = CategoryProducts.slice(indexOfFirstProduct,indexOfLastProduct)
-
+  
   const searchInGoogle = (product) =>{
     window.location.href =`https://www.google.com/search?q=${product}`;
    
@@ -73,6 +73,7 @@ function CategoriesPreview({ products }) {
              height={'300px'}
              
         />
+         {console.log(item)}
         <Stack mt='6' spacing='3'>
           <Heading size='md'></Heading>
           <Accordion allowToggle>
